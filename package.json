@@ -1,5 +1,8 @@
 {
   "name": "nfl",
+  "engines": {
+    "node": "4.2.2"
+  },
   "version": "0.0.1",
   "main": "./server.js",
   "private": true,
