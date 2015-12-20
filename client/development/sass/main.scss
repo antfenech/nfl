@@ -1,0 +1,134 @@
+$red: #ff1744;
+$darkRed: $red;
+$srRed: #c30222;
+
+body {
+  background: url('./../images/test-min.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin-top: 1em;
+  min-width: 515px;
+  header {
+    .team {
+      margin: 0;
+      height: 4em;
+      text-align: center;
+      text-shadow: 2px 2px black;
+      .row {
+        margin: inherit;
+        height: inherit;
+        width: 100%;
+      }
+      .final, .teamName {
+        height: inherit;
+        margin: inherit;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+      .final {
+        padding: .2em 0 0;
+        color: $red;
+      }
+      .teamName {
+        padding-top: .5em;
+        font-size: 2.1em;
+        @media screen and (max-width: 992px) {
+          padding-top: 0.8em;
+          font-size: 1.5em;
+        }
+        @media screen and (max-width: 600px) {
+          padding-top: 0.2em;
+          font-size: 2.5em;
+        }
+      }
+    }
+    .scoreboard {
+      table {
+        display: inline-table;
+        vertical-align: inherit;
+        th, td {
+          padding: 0;
+          text-align: center;
+          font-size: 0.875em;
+        }
+      }
+    }
+  }
+
+  main {
+    flex: 1 0 auto;
+    .collection {
+      color: #58595b;
+    }
+    .container {
+      background-color: rgba(0,0,0,.4);
+    }
+    .location {
+      .sm-location { text-align: center; }
+      .city { text-align: right}
+      margin-bottom: 3em;
+    }
+    .teamStats, .playerStats {
+      .title {
+        text-align: center;
+        color: $red;
+        font-size: 1.5em;
+      }
+    }
+    .playByPlay {
+      .title {
+        color: $red;
+        text-align: center;
+        font-size: 1.5em;
+
+      }
+      table {
+        th {
+          width: 20%;
+          text-align: center;
+          &.active {
+            background-color: $darkRed;
+            color: white;
+          }
+        }
+        td {
+          padding: 5px;
+        }
+      }
+    }
+    table {
+      background-color: rgba(255,255, 255, 0.8);
+      border-radius: 4px;
+      color: #58595b;
+      &.highlight>tbody>tr:hover {
+        background-color: $darkRed;
+        color: white;
+      }
+      th {
+        &:hover {
+          color: $red;
+        }
+        &.active {
+          color: $darkRed;
+        }
+      }
+      td {
+        border-radius: 0;
+        padding: 5px;
+        &:last-child, &:last-child {
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+        }
+        &:first-child, &:first-child {
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+        }
+      }
+    }
+  }
+}

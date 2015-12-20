@@ -1,0 +1,26 @@
+<div class="row playByPlay">
+  <div class="col s12">
+    <h6 class="title">Play By Play</h6>
+    <table class="highlight">
+      <thead>
+        <tr>
+          <th role="button"
+              ng-repeat="n in periods.range"
+              ng-click="setPeriod(periods.num - n)"
+              ng-class="{active: state.selected === periods.num - n}"
+              >{{periods.num - n}}</th>
+          <th role="button"
+              ng-click="setPeriod('all')"
+              ng-class="{active: state.selected === 'all'}"
+              >ALL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="(index, event) in plays | orderBy:type"
+            ng-show="state.selected === 'all' || state.selected === event.period">
+          <td colspan="{{periods.num + 1}}">{{event.play}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

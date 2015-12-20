@@ -1,0 +1,12 @@
+//add ng-show/hide if directive model doesn't load;
+//teamstats
+
+//moqup
+//https://app.moqups.com/anthonysfenech@gmail.com/SKAgGYr5if/view
+
+
+//sites for refrence
+http://sports.yahoo.com/nfl/new-england-patriots-seattle-seahawks-20150201026/
+http://espn.go.com/nfl/boxscore?gameId=400749027
+
+gery #58595b
