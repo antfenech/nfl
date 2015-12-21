@@ -1,5 +1,5 @@
 $red: #ff1744;
-$darkRed: $red;
+$blue: #00bcd4;
 $srRed: #c30222;
 
 body {
@@ -13,7 +13,7 @@ body {
   min-height: 100vh;
   flex-direction: column;
   margin-top: 1em;
-  min-width: 515px;
+
   header {
     .team {
       margin: 0;
@@ -69,30 +69,34 @@ body {
       background-color: rgba(0,0,0,.4);
     }
     .location {
+      margin-bottom: 3em;
       .sm-location { text-align: center; }
       .city { text-align: right}
-      margin-bottom: 3em;
     }
     .teamStats, .playerStats {
       .title {
-        text-align: center;
         color: $red;
         font-size: 1.5em;
+        text-align: center;
+        margin: 0.75em 0;
       }
     }
     .playByPlay {
       .title {
         color: $red;
-        text-align: center;
         font-size: 1.5em;
-
+        text-align: center;
+        margin: 0.75em 0;
       }
+      // .responsive-table {}
+
       table {
         th {
+          padding: 10px 5px;
           width: 20%;
           text-align: center;
           &.active {
-            background-color: $darkRed;
+            background-color: $red;
             color: white;
           }
         }
@@ -106,15 +110,13 @@ body {
       border-radius: 4px;
       color: #58595b;
       &.highlight>tbody>tr:hover {
-        background-color: $darkRed;
+        background-color: $red;
         color: white;
       }
       th {
-        &:hover {
+        padding: 5px;
+        &:hover, &.active {
           color: $red;
-        }
-        &.active {
-          color: $darkRed;
         }
       }
       td {
@@ -131,4 +133,7 @@ body {
       }
     }
   }
+}
+table.responsive-table tbody {
+    overflow-y: hidden;
 }

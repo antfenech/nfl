@@ -172,16 +172,16 @@ var playByPlay = function() {
   };
 };
 
-var test = function() {
+var table = function() {
   return {
     restrict: 'A',
     scope: {
       collection: '=',
+      tableclass: '@',
     },
     requrie: '^collection',
     templateUrl: './../../build/html/templates/statsTable.html',
     controller: ['$scope', function($scope) {
-
       $scope.changeSorting = function(i, chart) {
         if ($scope.collection.sort.stat === $scope.collection.stat[i]) {
           $scope.collection.sort.desc = !$scope.collection.sort.desc;
@@ -190,7 +190,7 @@ var test = function() {
           $scope.collection.sort.stat = $scope.collection.stat[i];
           $scope.collection.sort.col  = $scope.collection.columns[i];
         }
-      }
+      };
     }],
   };
 };
@@ -200,5 +200,5 @@ module.exports = {
   header: header,
   location: location,
   playByPlay: playByPlay,
-  test: test,
+  table: table,
 };

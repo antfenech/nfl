@@ -25,4 +25,4 @@ app.directive('ngHeader', directives.header);
 app.directive('ngLocation', directives.location);
 app.directive('ngPlayByPlay', directives.playByPlay);
 app.directive('ngStats', directives.stats);
-app.directive('ngTest', directives.test);
+app.directive('ngStatTable', directives.table);
