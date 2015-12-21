@@ -1,0 +1,45 @@
+header {
+  .team {
+    margin: 0;
+    height: 4em;
+    text-align: center;
+    text-shadow: 2px 2px black;
+    .row {
+      margin: inherit;
+      height: inherit;
+      width: 100%;
+    }
+    .final, .teamName {
+      height: inherit;
+      margin: inherit;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    .final {
+      padding: .2em 0 0;
+      color: $red;
+    }
+    .teamName {
+      padding-top: .5em;
+      font-size: 2.1em;
+      @media screen and (max-width: 992px) {
+        padding-top: 0.8em;
+        font-size: 1.5em;
+      }
+      @media screen and (max-width: 600px) {
+        padding-top: 0.2em;
+        font-size: 2.5em;
+      }
+    }
+  }
+  .scoreboard {
+    table {
+      display: inline-table;
+      vertical-align: inherit;
+      th, td {
+        padding: 0;
+        text-align: center;
+        font-size: 0.875em;
+      }
+    }
+  }
+}

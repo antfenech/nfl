@@ -1,0 +1,20 @@
+<section class="teamStats container" ng-show="show === 'Team Stats'">
+  <article class="row">
+    <div ng-stat-table class="col s12 m6" collection="table.teamPassing"></div>
+    <div ng-stat-table class="col s12 m6" collection="table.teamRushing"></div>
+  </article>
+  <article class="row">
+    <div ng-stat-table class="col s12 m6" collection="table.teamDefense"></div>
+    <div ng-stat-table class="col s12 m6" collection="table.teamPenalities"></div>
+  </article>
+</section>
+
+<section class="playerStats container" ng-show="show === 'Position Stats'">
+  <article class="row">
+    <div ng-stat-table class="col s12" collection="table.passing"></div>
+  </article>
+  <article class="row">
+    <div ng-stat-table class="col s12 m6" collection="table.receiving"></div>
+    <div ng-stat-table class="col s12 m6" collection="table.rushing"></div>
+  </article>
+</section>

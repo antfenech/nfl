@@ -6,8 +6,8 @@ gulp.task('watch', () => {
   const gutil      = require('gulp-util');
 
   const HTMLSOURCE = './client/development/html/**/*.html';
-  const SASSSOURCE = './client/development/sass/*.scss';
-  const JSSOURCE   = './client/development/js/*.js';
+  const SASSSOURCE = './client/development/sass/**/*.scss';
+  const JSSOURCE   = './client/development/js/**/*.js';
 
   livereload.listen();
 

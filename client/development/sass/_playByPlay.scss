@@ -1,0 +1,27 @@
+@import "./_colors.scss";
+@import "./_mixins.scss";
+
+.playByPlay {
+  margin-top: 2em;
+  .title {
+    color: $red;
+    font-size: 1.5em;
+    text-align: center;
+    margin: 0.75em 0;
+  }
+
+  table {
+    th {
+      padding: 10px 5px;
+      width: 20%;
+      text-align: center;
+      &.active {
+        transition: background-color .5s, color .5s;
+        @include background-and-text($red, white);
+      }
+    }
+    td {
+      padding: 5px;
+    }
+  }
+}

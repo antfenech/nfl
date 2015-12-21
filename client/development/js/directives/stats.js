@@ -1,36 +1,13 @@
 'use strict';
 var _ = require('underscore');
 
-var header = function() {
-  return {
-    restrict: 'A',
-    scope: true,
-    templateUrl: './../../build/html/templates/header.html',
-    controller: ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
-      (function() {
-        var gameId = $routeParams.gameId;
-        if (!gameId || isNaN(gameId)) return;
-
-        $http({
-          method: 'GET',
-          url: '/api/game/' + gameId + '?scoreboard=true',
-        }).success(function(data) {
-          $scope.periods = data.scoreboard.periods;
-          _.each(data.scoreboard.teams, function(team) { $scope[team.side] = team; });
-        }).catch(function(err) {
-          console.log('err', err);
-        });
-
-      })();
-    }],
-  };
-};
-
-var stats = function() {
+module.exports = function() {
   return {
     restrict: 'E',
-    scope: true,
-    templateUrl: './../../build/html/templates/players.html',
+    scope: {
+      show: '=',
+    },
+    templateUrl: './../../build/html/templates/stats.html',
     controller: ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
       (function() {
         var gameId = $routeParams.gameId;
@@ -117,87 +94,4 @@ var stats = function() {
       })();
     }],
   };
-};
-
-var location = function() {
-  return {
-    restrict: 'A',
-    scope: true,
-    templateUrl: './../../build/html/templates/location.html',
-    controller: ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
-      (function() {
-        var gameId = $routeParams.gameId;
-        if (!gameId || isNaN(gameId)) return;
-
-        $http({
-          method: 'GET',
-          url: '/api/game/' + gameId + '?location=true',
-        }).success(function(data) {
-          $scope.location = data.location;
-        }).catch(function(err) {
-          console.log('err', err);
-        });
-      })();
-    }],
-  };
-};
-
-var playByPlay = function() {
-  return {
-    restrict: 'A',
-    scope: true,
-    templateUrl: './../../build/html/templates/playByPlay.html',
-    controller: ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
-      (function() {
-        var gameId = $routeParams.gameId;
-        if (!gameId || isNaN(gameId)) return;
-
-        $http({
-          method: 'GET',
-          url: '/api/game/' + gameId + '?playByPlay=true',
-        }).success(function(data) {
-          var events = data.playByPlay;
-          $scope.periods = {num: events.periods, range: _.range(data.playByPlay.periods)};
-          $scope.state = {selected: events.periods};
-          $scope.plays = events.plays;
-        }).catch(function(err) {
-          console.log('err', err);
-        });
-
-        $scope.setPeriod = function(n) {
-          $scope.state.selected = n;
-        };
-      })();
-    }],
-  };
-};
-
-var table = function() {
-  return {
-    restrict: 'A',
-    scope: {
-      collection: '=',
-    },
-    requrie: '^collection',
-    templateUrl: './../../build/html/templates/statsTable.html',
-    controller: ['$scope', function($scope) {
-      $scope.changeSorting = function(i, chart) {
-        if ($scope.collection.sort.stat === $scope.collection.stat[i]) {
-          $scope.collection.sort.desc = !$scope.collection.sort.desc;
-        } else {
-          $scope.collection.sort.desc = true;
-          $scope.collection.sort.stat = $scope.collection.stat[i];
-          $scope.collection.sort.col  = $scope.collection.columns[i];
-        }
-      };
-    }],
-  };
-};
-
-module.exports = {
-  stats: stats,
-  header: header,
-  location: location,
-  playByPlay: playByPlay,
-  table: table,
 };

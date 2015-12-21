@@ -1,13 +1,13 @@
 'use strict';
 var angular        = require('angular');
 var angularRoute   = require('angular-route');
-var directives     = require('./directives.js');
 
 var app = angular.module('myApp', [
   angularRoute,
 ]);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+
   $routeProvider.when('/', {
     redirectTo: '/game/56502',
   }).when('/game/:gameId', {
@@ -21,8 +21,9 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   // }
 }]);
 
-app.directive('ngHeader', directives.header);
-app.directive('ngLocation', directives.location);
-app.directive('ngPlayByPlay', directives.playByPlay);
-app.directive('ngStats', directives.stats);
-app.directive('ngStatTable', directives.table);
+app.directive('ngStatsPage', require('./directives/statsPage'));
+app.directive('ngHeader', require('./directives/header.js'));
+app.directive('ngLocation', require('./directives/location.js'));
+app.directive('ngPlayByPlay', require('./directives/playByPlay.js'));
+app.directive('ngStats', require('./directives/stats.js'));
+app.directive('ngStatTable', require('./directives/statTable.js'));
