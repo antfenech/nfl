@@ -177,7 +177,6 @@ var table = function() {
     restrict: 'A',
     scope: {
       collection: '=',
-      tableclass: '@',
     },
     requrie: '^collection',
     templateUrl: './../../build/html/templates/statsTable.html',
