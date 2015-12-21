@@ -4,7 +4,7 @@ const path        = require('path');
 const bodyParser  = require('body-parser');
 const compression = require('compression');
 const app         = express();
-const PORT        = 3000;
+const PORT        = 5000;
 
 app.use(compression());
 
